@@ -1,0 +1,44 @@
+#include<iostream>
+
+class gama
+{
+private:
+    static int total;
+    int id;
+public:
+    gama()
+    {
+        total++;
+        id = total;
+    }
+    ~gama()
+    {
+        total--;
+        std::cout << "Delet ID " << id << std::endl;
+    }
+    static void showTotal()
+    {
+        std::cout << "Total: " << total << std::endl;
+    }
+    void showId()
+    {
+        std::cout << id << std::endl;
+    }
+};
+
+int gama::total = 0;
+
+int main(int argc, char *argv[])
+{
+    gama g1;
+    gama::showTotal();
+
+    gama g2, g3;
+    gama::showTotal();
+
+    g1.showId();
+    g2.showId();
+    g3.showId();
+
+    return EXIT_SUCCESS;
+}

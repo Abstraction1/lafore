@@ -1,0 +1,35 @@
+#include<iostream>
+
+class alpha
+{
+private:
+    int data1;
+public:
+    alpha() : data1(99)
+    { }
+    friend class beta;
+
+};
+
+class beta
+{
+private:
+
+public:
+    void func1(alpha a) {
+        std::cout << "\ndate1 = " << a.data1;
+    }
+    void func2(alpha a) {
+        std::cout << "\ndate1 = " << a.data1;
+    }
+};
+
+int main(int argc, char *argv[])
+{
+    alpha a;
+    beta b;
+    b.func1(a);
+    b.func1(a);
+    std::cout << std::endl;
+    return EXIT_SUCCESS;
+}
