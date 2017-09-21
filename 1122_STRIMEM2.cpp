@@ -64,6 +64,11 @@ public:
 
     String& operator =(String& S)
     {
+        if(this == &S)
+        {
+            return *this;
+        }
+
         std::cout << "\nassignment";
         if(psc->count == 1)
         {
